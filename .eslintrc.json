@@ -25,7 +25,8 @@
     "rules": {
         "react/jsx-props-no-spreading": "off",
         "no-return-assign": "off",
-        "no-multi-assign": "off"
+        "no-multi-assign": "off",
+        "no-nested-ternary": "off"
     },
     "overrides": [
         {

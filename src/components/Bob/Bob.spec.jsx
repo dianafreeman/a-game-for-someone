@@ -1,10 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Box from '.';
+import Bob from '.';
 
-describe('Box', () => {
+describe('Bob', () => {
   it('renders without crashing, matches snapshot', () => {
-    const { container } = render(<Box />);
+    const { container } = render(<Bob />);
+
     expect(container).toMatchSnapshot();
   });
 });
