@@ -27,12 +27,7 @@
         "no-return-assign": "off",
         "no-multi-assign": "off"
     },
-    "overrides": [{
-            "files": ["scripts/**/*.js"],
-            "rules": {
-                "no-undef": "off"
-            }
-        },
+    "overrides": [
         {
             "files": ["src/**/*.spec.jsx"],
             "rules": {

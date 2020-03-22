@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useFrame } from 'react-three-fiber';
 
 function Box(props) {
@@ -6,11 +6,15 @@ function Box(props) {
   const mesh = useRef();
 
   // Set up state for the hovered and active state
-  const [hovered, setHover] = useState(false);
-  const [active, setActive] = useState(false);
+  // const [hovered, setHover] = useState(false);
+  // const [active, setActive] = useState(false);
 
+  useEffect(() => {
+    console.log(mesh.current);
+  });
   // Rotate mesh every frame, this is outside of React without overhead
   useFrame(() => (mesh.current.rotation.z = mesh.current.rotation.z += 0.01));
+
 
   return (
     <mesh
@@ -20,7 +24,7 @@ function Box(props) {
       // onPointerOver={() => setHover(true)}
       // onPointerOut={() => setHover(false)}
     >
-      <torusBufferGeometry attach="geometry" args={[1, 0.25, 15, 30, 6.3]} />
+      <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
       <meshStandardMaterial attach="material" color="darkred" />
     </mesh>
   );
