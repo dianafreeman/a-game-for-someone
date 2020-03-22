@@ -4,18 +4,18 @@ import React from 'react';
 import { Canvas } from 'react-three-fiber';
 import * as THREE from 'three';
 import Plane from '../Plane';
-import Bob from '../Bob';
+import Bobble from '../Bobble';
 
 const Light = ({ brightness, color }) => (
-  <rectAreaLight
+  <directionalLight
     width={3}
     height={3}
     color={color}
     intensity={brightness}
-    position={[0, 0, 7]}
+    position={[0, 1, 1]}
     lookAt={[0, 0, 0]}
-    penumbra={2}
-    // castShadow
+    penumbra={1}
+    castShadow
   />
 );
 
@@ -36,9 +36,9 @@ const GameCanvas = () => (
       gl.shadowMap.type = THREE.PCFShadowMap;
     }}
   >
-    <Light brightness={15} color="white" />
-    <ambientLight intensity={0.1} castShadow />
-    <Bob />
+    <Light brightness={1} color="white" />
+    <ambientLight intensity={0.1} />
+    <Bobble />
 
     Start new ROW
     <Plane position={[-1, -1, 0]} />

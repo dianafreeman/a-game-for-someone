@@ -14,7 +14,7 @@ function Plane(props) {
       receiveShadow
     >
       <planeBufferGeometry attach="geometry" args={[1, 1, 1]} />
-      <meshPhysicalMaterial attach="material" color={isActive ? 'red' : isHovered ? 'green' : 'gray'} />
+      <meshPhysicalMaterial attach="material" color={isActive ? 'maroon' : isHovered ? 'green' : 'gray'} />
     </mesh>
   );
 }

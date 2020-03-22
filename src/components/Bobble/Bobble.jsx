@@ -20,7 +20,7 @@ thetaStart — specify vertical starting angle. Default is 0.
 thetaLength — specify vertical sweep angle size. Default is Math.PI.
  *
  */
-const Bob = (props) => {
+const Bobble = (props) => {
   // This reference will give us direct access to the mesh
   const mesh = useRef();
   const MAX = 1;
@@ -53,7 +53,7 @@ if mesh
       onClick={() => setGoUp(!goUp)}
     >
       <sphereBufferGeometry attach="geometry" args={[0.25, 30, 30]} />
-      <a.meshPhysicalMaterial
+      <meshPhysicalMaterial
         attach="material"
         color="turquoise"
       />
@@ -61,4 +61,4 @@ if mesh
   );
 };
 
-export default Bob;
+export default Bobble;
