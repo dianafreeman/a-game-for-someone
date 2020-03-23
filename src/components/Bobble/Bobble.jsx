@@ -1,48 +1,23 @@
 /* eslint-disable consistent-return */
 /* eslint-disable no-use-before-define */
 import React, {
-  useRef, useState, useEffect, setInterval,
+  useRef, useState,
 } from 'react';
-import { useFrame } from 'react-three-fiber';
-import { useSpring, a } from 'react-spring/three';
+import PropTypes from 'prop-types';
 import useInterval from '@use-it/interval';
-/*
- *
+import { useSpring, a } from 'react-spring/three';
 
-SphereBufferGeometry(radius : Float, widthSegments : Integer, heightSegments : Integer, phiStart : Float, phiLength : Float, thetaStart : Float, thetaLength : Float)
 
-radius — sphere radius. Default is 1.
-widthSegments — number of horizontal segments. Minimum value is 3, and the default is 8.
-heightSegments — number of vertical segments. Minimum value is 2, and the default is 6.
-phiStart — specify horizontal starting angle. Default is 0.
-phiLength — specify horizontal sweep angle size. Default is Math.PI * 2.
-thetaStart — specify vertical starting angle. Default is 0.
-thetaLength — specify vertical sweep angle size. Default is Math.PI.
- *
- */
-const Bobble = (props) => {
-  // This reference will give us direct access to the mesh
+const Bobble = ({ activeXY, ...props }) => {
   const mesh = useRef();
-  const MAX = 1;
-  const MIN = 0;
+  const [xPos, yPos] = activeXY;
   const [goUp, setGoUp] = useState(true);
-
   const springProps = useSpring({
-    position: goUp ? [1, 0, 0.5] : [1, 0, 0.75],
+    position: goUp ? [xPos, yPos, 0.5] : [xPos, yPos, 0.75],
   });
   useInterval(() => {
     setGoUp(!goUp);
   }, 400);
-  // // Rotate mesh every frame, this is outside of React without overhead
-  // useFrame(() => (mesh.current.position.z <= MAX ? goUp() : goDown()));
-  /*
-if mesh ZPositon < 1.5
-  keep moving up frame by frame
-if mesh
-
-
-*/
-
 
   return (
     <a.mesh
@@ -59,6 +34,10 @@ if mesh
       />
     </a.mesh>
   );
+};
+
+Bobble.propTypes = {
+  activeXY: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default Bobble;
