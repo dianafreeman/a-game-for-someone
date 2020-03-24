@@ -30,7 +30,7 @@
     },
     "overrides": [
         {
-            "files": ["src/**/*.spec.jsx"],
+            "files": ["src/**/*.spec.{js, jsx}"],
             "rules": {
                 "no-undef": "off"
             }
